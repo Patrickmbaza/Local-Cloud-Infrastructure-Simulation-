@@ -1,0 +1,39 @@
+services:
+  localstack:
+    image: localstack/localstack:3.0
+    container_name: localstack-demo
+    ports:
+      - "4566:4566"
+      - "8081:8080"  # Web UI
+    environment:
+      - SERVICES=s3,ec2,iam,sts
+      - AWS_DEFAULT_REGION=us-east-1
+      - DEBUG=1
+      - PERSISTENCE=0
+      - LS_LOG=info
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4566/_localstack/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - demo-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-demo
+    ports:
+      - "8080:80"
+    volumes:
+      - "./terraform/web-app:/usr/share/nginx/html"
+    depends_on:
+      localstack:
+        condition: service_healthy
+    networks:
+      - demo-network
+
+networks:
+  demo-network:
+    driver: bridge
