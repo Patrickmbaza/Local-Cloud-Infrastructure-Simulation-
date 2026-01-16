@@ -1,4 +1,4 @@
-nfrastructure-as-Code Demo with Terraform & LocalStack
+Infrastructure-as-Code Demo with Terraform & LocalStack
 🚀 Project Overview
 
 A complete Infrastructure-as-Code (IaC) demonstration that provisions AWS cloud resources locally using Terraform and LocalStack. Deploy a production-like environment with VPC networking, EC2 compute instances, S3 storage, and IAM security - all running on your local machine with zero cloud costs.
