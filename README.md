@@ -70,7 +70,7 @@ Infrastructure Stack
 
         NGINX container serving static content
 
-        Interactive dashboard at http://localhost:8888
+        Interactive dashboard at http://localhost:8080
 
         Real-time service status monitoring
 
