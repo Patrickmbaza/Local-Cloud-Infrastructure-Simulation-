@@ -1,6 +1,6 @@
 services:
   localstack:
-    image: localstack/localstack:3.0
+    image: localstack/localstack:s3-latest
     container_name: localstack-demo
     ports:
       - "4566:4566"
