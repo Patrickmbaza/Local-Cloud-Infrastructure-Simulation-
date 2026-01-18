@@ -116,3 +116,7 @@ password*
 token*
 access_key*
 private_key*
+
+
+#s3
+live-demo.txt
